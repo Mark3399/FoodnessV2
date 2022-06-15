@@ -15,6 +15,7 @@ const cart = () => {
 
     const [tip, setTip] = useState('09-10')
     const [adresa, setAdresa] = useState('')
+    const [telefon, setTelefon] = useState('')
     const [alignment, setAlignment] = useState('Plata online')
 
     const handleChange = (event, newAlignment) => {
@@ -438,6 +439,21 @@ const cart = () => {
                                                     </div>
 
                                                     <div className="col-span-6 sm:col-span-3">
+                                                        <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+                                                            Telefon
+                                                        </label>
+                                                        <input
+                                                            onChange={(e) => setTelefon(e.target.value)}
+                                                            value={telefon}
+                                                            type="text"
+                                                            name="first-name"
+                                                            id="first-name"
+                                                            autoComplete="given-name"
+                                                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                        />
+                                                    </div>
+
+                                                    <div className="col-span-6 sm:col-span-3">
                                                         <label htmlFor="country" className="block text-sm font-medium text-gray-700">
                                                             Interval Livrare
                                                         </label>
@@ -478,7 +494,7 @@ const cart = () => {
                                                                 const newCart = { ...cart };
                                                                 newCart.adresa = adresa;
                                                                 newCart.ora = tip;
-
+                                                                newCart.telefon = telefon;
                                                                 OrderDataService.addOrder(newCart)
                                                             }}
                                                             type="submit"

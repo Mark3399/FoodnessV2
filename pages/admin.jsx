@@ -182,7 +182,7 @@ const Admin = () => {
     function checkIfAdmin() {
         if (goOn) {
             if (user) {
-                if (admins[0].adminList[0] === user.email) {
+                if (admins[0].adminList.indexOf(user.email) > -1) {
 
                     return true;
                 }
@@ -229,7 +229,7 @@ const Admin = () => {
     }
 
     function displayCart(cart) {
-        console.log(cart);
+
 
         const items = [];
         cart.sort(compare);
@@ -523,8 +523,15 @@ const Admin = () => {
                                     Preparate
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Adresa
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Telefon
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Data Livrare
                                 </th>
+
 
 
                             </tr>
@@ -541,6 +548,12 @@ const Admin = () => {
                                             </th>
                                             <td class="px-6 py-4">
                                                 {`${displayCart(doc.cart)[0].meniu}, ${displayCart(doc.cart)[1].meniu}, ${displayCart(doc.cart)[2].meniu}, ${displayCart(doc.cart)[3].meniu}`}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {doc.adresa}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {doc.telefon}
                                             </td>
                                             <td class="px-6 py-4">
                                                 {transformDate(displayCart(doc.cart)[0].idDate.seconds).toString()}
@@ -561,6 +574,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[0].meniu}, ${displayCart(doc.cart)[1].meniu}, ${displayCart(doc.cart)[2].meniu}, ${displayCart(doc.cart)[3].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[1].idDate.seconds).toString()}
                                                 </td>
 
@@ -572,6 +591,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[4].meniu}, ${displayCart(doc.cart)[5].meniu}, ${displayCart(doc.cart)[6].meniu}, ${displayCart(doc.cart)[7].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[4].idDate.seconds).toString()}
@@ -587,6 +612,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[8].meniu}, ${displayCart(doc.cart)[9].meniu}, ${displayCart(doc.cart)[10].meniu}, ${displayCart(doc.cart)[11].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[8].idDate.seconds).toString()}
                                                 </td>
 
@@ -600,6 +631,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[12].meniu}, ${displayCart(doc.cart)[13].meniu}, ${displayCart(doc.cart)[14].meniu}, ${displayCart(doc.cart)[15].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[12].idDate.seconds).toString()}
                                                 </td>
 
@@ -611,6 +648,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[16].meniu}, ${displayCart(doc.cart)[17].meniu}, ${displayCart(doc.cart)[18].meniu}, ${displayCart(doc.cart)[19].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[16].idDate.seconds).toString()}
@@ -632,6 +675,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[0].meniu}, ${displayCart(doc.cart)[1].meniu}, ${displayCart(doc.cart)[2].meniu}, ${displayCart(doc.cart)[3].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[0].idDate.seconds).toString()}
                                                 </td>
 
@@ -643,6 +692,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[4].meniu}, ${displayCart(doc.cart)[5].meniu}, ${displayCart(doc.cart)[6].meniu}, ${displayCart(doc.cart)[7].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[4].idDate.seconds).toString()}
@@ -658,6 +713,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[8].meniu}, ${displayCart(doc.cart)[9].meniu}, ${displayCart(doc.cart)[10].meniu}, ${displayCart(doc.cart)[11].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[8].idDate.seconds).toString()}
                                                 </td>
 
@@ -671,6 +732,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[12].meniu}, ${displayCart(doc.cart)[13].meniu}, ${displayCart(doc.cart)[14].meniu}, ${displayCart(doc.cart)[15].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[12].idDate.seconds).toString()}
                                                 </td>
 
@@ -682,6 +749,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[16].meniu}, ${displayCart(doc.cart)[17].meniu}, ${displayCart(doc.cart)[18].meniu}, ${displayCart(doc.cart)[19].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[16].idDate.seconds).toString()}
@@ -698,6 +771,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[20].meniu}, ${displayCart(doc.cart)[21].meniu}, ${displayCart(doc.cart)[22].meniu}, ${displayCart(doc.cart)[23].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[20].idDate.seconds).toString()}
                                                 </td>
 
@@ -709,6 +788,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[24].meniu}, ${displayCart(doc.cart)[25].meniu}, ${displayCart(doc.cart)[26].meniu}, ${displayCart(doc.cart)[27].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[24].idDate.seconds).toString()}
@@ -724,6 +809,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[28].meniu}, ${displayCart(doc.cart)[29].meniu}, ${displayCart(doc.cart)[30].meniu}, ${displayCart(doc.cart)[31].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[28].idDate.seconds).toString()}
                                                 </td>
 
@@ -737,6 +828,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[32].meniu}, ${displayCart(doc.cart)[33].meniu}, ${displayCart(doc.cart)[34].meniu}, ${displayCart(doc.cart)[35].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[32].idDate.seconds).toString()}
                                                 </td>
 
@@ -748,6 +845,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[36].meniu}, ${displayCart(doc.cart)[37].meniu}, ${displayCart(doc.cart)[38].meniu}, ${displayCart(doc.cart)[39].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[36].idDate.seconds).toString()}
@@ -796,6 +899,12 @@ const Admin = () => {
                                     Preparate
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Adresa
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Telefon
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Data Livrare
                                 </th>
 
@@ -804,7 +913,7 @@ const Admin = () => {
                         </thead>
                         <tbody>
                             {userOrders.map((doc, index) => {
-                                console.log(userOrders)
+
                                 if (displayCart(doc.cart).length === 4)
                                     return (
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={doc.id}>
@@ -814,6 +923,13 @@ const Admin = () => {
                                             <td class="px-6 py-4">
                                                 {`${displayCart(doc.cart)[0].meniu}, ${displayCart(doc.cart)[1].meniu}, ${displayCart(doc.cart)[2].meniu}, ${displayCart(doc.cart)[3].meniu}`}
                                             </td>
+                                            <td class="px-6 py-4">
+                                                {doc.adresa}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {doc.telefon}
+                                            </td>
+
                                             <td class="px-6 py-4">
                                                 {transformDate(displayCart(doc.cart)[0].idDate.seconds).toString()}
                                             </td>
@@ -833,6 +949,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[0].meniu}, ${displayCart(doc.cart)[1].meniu}, ${displayCart(doc.cart)[2].meniu}, ${displayCart(doc.cart)[3].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[1].idDate.seconds).toString()}
                                                 </td>
 
@@ -844,6 +966,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[4].meniu}, ${displayCart(doc.cart)[5].meniu}, ${displayCart(doc.cart)[6].meniu}, ${displayCart(doc.cart)[7].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[4].idDate.seconds).toString()}
@@ -859,6 +987,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[8].meniu}, ${displayCart(doc.cart)[9].meniu}, ${displayCart(doc.cart)[10].meniu}, ${displayCart(doc.cart)[11].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[8].idDate.seconds).toString()}
                                                 </td>
 
@@ -872,6 +1006,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[12].meniu}, ${displayCart(doc.cart)[13].meniu}, ${displayCart(doc.cart)[14].meniu}, ${displayCart(doc.cart)[15].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[12].idDate.seconds).toString()}
                                                 </td>
 
@@ -883,6 +1023,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[16].meniu}, ${displayCart(doc.cart)[17].meniu}, ${displayCart(doc.cart)[18].meniu}, ${displayCart(doc.cart)[19].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[16].idDate.seconds).toString()}
@@ -904,6 +1050,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[0].meniu}, ${displayCart(doc.cart)[1].meniu}, ${displayCart(doc.cart)[2].meniu}, ${displayCart(doc.cart)[3].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[0].idDate.seconds).toString()}
                                                 </td>
 
@@ -915,6 +1067,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[4].meniu}, ${displayCart(doc.cart)[5].meniu}, ${displayCart(doc.cart)[6].meniu}, ${displayCart(doc.cart)[7].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[4].idDate.seconds).toString()}
@@ -930,6 +1088,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[8].meniu}, ${displayCart(doc.cart)[9].meniu}, ${displayCart(doc.cart)[10].meniu}, ${displayCart(doc.cart)[11].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[8].idDate.seconds).toString()}
                                                 </td>
 
@@ -943,6 +1107,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[12].meniu}, ${displayCart(doc.cart)[13].meniu}, ${displayCart(doc.cart)[14].meniu}, ${displayCart(doc.cart)[15].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[12].idDate.seconds).toString()}
                                                 </td>
 
@@ -954,6 +1124,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[16].meniu}, ${displayCart(doc.cart)[17].meniu}, ${displayCart(doc.cart)[18].meniu}, ${displayCart(doc.cart)[19].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[16].idDate.seconds).toString()}
@@ -970,6 +1146,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[20].meniu}, ${displayCart(doc.cart)[21].meniu}, ${displayCart(doc.cart)[22].meniu}, ${displayCart(doc.cart)[23].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[20].idDate.seconds).toString()}
                                                 </td>
 
@@ -981,6 +1163,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[24].meniu}, ${displayCart(doc.cart)[25].meniu}, ${displayCart(doc.cart)[26].meniu}, ${displayCart(doc.cart)[27].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[24].idDate.seconds).toString()}
@@ -996,6 +1184,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[28].meniu}, ${displayCart(doc.cart)[29].meniu}, ${displayCart(doc.cart)[30].meniu}, ${displayCart(doc.cart)[31].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[28].idDate.seconds).toString()}
                                                 </td>
 
@@ -1009,6 +1203,12 @@ const Admin = () => {
                                                     {`${displayCart(doc.cart)[32].meniu}, ${displayCart(doc.cart)[33].meniu}, ${displayCart(doc.cart)[34].meniu}, ${displayCart(doc.cart)[35].meniu}`}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
+                                                </td>
+                                                <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[32].idDate.seconds).toString()}
                                                 </td>
 
@@ -1020,6 +1220,12 @@ const Admin = () => {
                                                 </th>
                                                 <td class="px-6 py-4">
                                                     {`${displayCart(doc.cart)[36].meniu}, ${displayCart(doc.cart)[37].meniu}, ${displayCart(doc.cart)[38].meniu}, ${displayCart(doc.cart)[39].meniu}`}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.adresa}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {doc.telefon}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {transformDate(displayCart(doc.cart)[36].idDate.seconds).toString()}

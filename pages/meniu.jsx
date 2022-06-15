@@ -17,6 +17,7 @@ import { useUserAuth1 } from "./context/UserAuthContext";
 import { useDispatch, useSelector } from 'react-redux';
 import { setStateCart } from '../redux/cartSlice';
 import Alert from '@mui/material/Alert';
+import { useRouter } from 'next/router';
 
 export default function Meniu() {
 
@@ -34,6 +35,7 @@ export default function Meniu() {
     const cartState = useSelector((state) => state.cart.value);
 
     let { user } = useUserAuth1();
+    const router = useRouter();
 
     const handleChange = (event, newAlignment) => {
         setAlignment(newAlignment);
@@ -496,15 +498,19 @@ export default function Meniu() {
                             <div className="mt-6">
                                 <button
                                     onClick={() => {
-                                        console.log(cart.length)
-                                        console.log(tipAbonament * 4)
-                                        if (cart.length === tipAbonament * 4) {
-                                            dispatch(setStateCart({ cart: cart, user: user.email, date: Date.now(), tipAbonament: tipAbonament }))
-
-                                            setMessage('ok');
+                                        if (!user) {
+                                            router.push('/login')
                                         } else {
-                                            setMessage('error');
+                                            if (cart.length === tipAbonament * 4) {
+                                                dispatch(setStateCart({ cart: cart, user: user.email, date: Date.now(), tipAbonament: tipAbonament }))
+
+                                                setMessage('ok');
+                                            } else {
+                                                setMessage('error');
+                                            }
                                         }
+
+
                                         // OrderDataService.addOrder({ cart, user: user.email, date: Date.now() })
                                     }}
                                     className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
