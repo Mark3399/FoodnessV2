@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import OrderDataService from './services/order.services'
 import { setStateCart } from '../redux/cartSlice';
+import Alert from '@mui/material/Alert';
 
 const cart = () => {
     const cart2 = useSelector((state) => state.cart.value);
@@ -88,6 +89,7 @@ const cart = () => {
             return 65 * 10;
         }
     }
+
 
     return (
         <div >

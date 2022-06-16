@@ -34,7 +34,7 @@ const Navbar = () => {
     }
 
     function redirectToUserPage() {
-        router.push('/admin')
+        router.push('/user')
     }
 
     function userInfo() {

@@ -8,10 +8,10 @@ class OrderDataService {
         return addDoc(orderCollectionRef, newMenu);
     }
 
-    updateOrder = (id, updatedMenu) => {
+    updateOrder = (id, updatedOrder) => {
         const orderDoc = doc(db, 'order', id);
 
-        return updateDoc(orderDoc, updatedMenu);
+        return updateDoc(orderDoc, updatedOrder);
     }
 
     deleteOrder = (id) => {
@@ -20,20 +20,39 @@ class OrderDataService {
         return deleteDoc(orderDoc)
     }
 
-    getAllOrders = () => {
-        return getDocs(orderCollectionRef);
+    getAllOrders = async () => {
+        const q = query(collection(db, "order"), where("livrat", "==", false));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+
+            console.log(doc.id, " => ", doc.data());
+        });
+
+        return querySnapshot;
     }
 
     getOrderForUser = async (user) => {
         const q = query(collection(db, "order"), where("user", "==", user));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
+
             console.log(doc.id, " => ", doc.data());
         });
 
         return querySnapshot;
     }
+
+    getOrderSent = async () => {
+        const q = query(collection(db, "order"), where("livrat", "==", true));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+
+            console.log(doc.id, " => ", doc.data());
+        });
+
+        return querySnapshot;
+    }
+
 
 }
 

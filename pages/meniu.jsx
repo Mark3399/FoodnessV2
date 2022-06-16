@@ -141,7 +141,7 @@ export default function Meniu() {
 
 
         setCart([...auxCart]);
-
+        console.log(getAllDaysCalories())
     }
 
     useEffect(() => {
@@ -189,6 +189,26 @@ export default function Meniu() {
     const dispatch = useDispatch();
 
 
+    function getAllDaysCalories() {
+        console.log(cart);
+        const unique = [...new Set(cart.map(item => item.idDate))];
+
+        let caloriesPerDay = []
+        unique.forEach(element => {
+            caloriesPerDay.push({ date: element, calories: 0 })
+        });
+
+        cart.forEach(element => {
+            caloriesPerDay.forEach(calories => {
+                if (element.idDate === calories.date) {
+                    calories.calories += element.calorii
+                }
+            });
+        });
+
+        return caloriesPerDay;
+
+    }
 
     return (
         <>
@@ -460,6 +480,7 @@ export default function Meniu() {
                                 <div className="flow-root">
                                     <ul role="list" className="-my-6 divide-y divide-gray-200">
                                         {cart.map((product) => (
+
                                             <li className="flex py-6">
                                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                                     <img
@@ -493,6 +514,11 @@ export default function Meniu() {
                                 <p>Comenzi alese</p>
                                 <p>{cart.length}/{tipAbonament * 4}</p>
                             </div>
+                            {getAllDaysCalories().map((calories) => (<div className="flex justify-between text-base font-medium text-gray-900">
+                                <p>{`Calorii ${calories.date.getDate()}-${calories.date.getMonth() + 1}-${calories.date.getFullYear()}`}</p>
+                                <p>{calories.calories.toString()}</p>
+                            </div>))}
+
 
 
                             <div className="mt-6">
@@ -503,7 +529,7 @@ export default function Meniu() {
                                         } else {
                                             if (cart.length === tipAbonament * 4) {
                                                 dispatch(setStateCart({ cart: cart, user: user.email, date: Date.now(), tipAbonament: tipAbonament }))
-
+                                                setCart([])
                                                 setMessage('ok');
                                             } else {
                                                 setMessage('error');
