@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState, useContext } from "react"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, deleteUser } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, deleteUser, sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '../../firebase/firebase'
 
 
@@ -33,6 +33,18 @@ export function UserAuthContextProvider({ children }) {
         });
     }
 
+    function resetPasswordEmail1(email) {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                console.log('Emailul cu link-ul de resetare a parlei a fost trimis!')
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+            });
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -40,7 +52,7 @@ export function UserAuthContextProvider({ children }) {
 
         return () => { unsubscribe(); }
     }, [])
-    return (<userAuthContext.Provider value={{ user, signUp, logIn, logOut, googleSignIn, deleteUser1 }}>{children}</userAuthContext.Provider>)
+    return (<userAuthContext.Provider value={{ user, signUp, logIn, logOut, googleSignIn, deleteUser1, resetPasswordEmail1 }}>{children}</userAuthContext.Provider>)
 }
 
 export function useUserAuth1() {
